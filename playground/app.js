@@ -259,17 +259,130 @@
 //   }
 // }
 
-let listOfAnimal = [
-  ["Ant", "Bull", "Cat"],
-  ["Dog", "Elephant", "Fly"],
-  ["Giraff", "Hen", "Iel"],
-];
+// let listOfAnimal = [
+//   ["Ant", "Bull", "Cat"],
+//   ["Dog", "Elephant", "Fly"],
+//   ["Giraff", "Hen", "Iel"],
+// ];
 
-// show list of each animal
+// // show list of each animal
 
-for (let i = 0; i < listOfAnimal.length; i++) {
-  console.log(listOfAnimal[i]);
-  for (let j = 0; j < listOfAnimal[i].length; j++) {
-    console.log(listOfAnimal[i][j]);
+// for (let i = 0; i < listOfAnimal.length; i++) {
+//   console.log(listOfAnimal[i]);
+//   for (let j = 0; j < listOfAnimal[i].length; j++) {
+//     console.log(listOfAnimal[i][j]);
+//   }
+// }
+
+// While loops
+
+// let num = 0;
+
+// while (num < 10) {
+//   console.log(num);
+//   num += 1;
+// }
+// //ถ้าหลุดจาก loop ไม่ตรงเงื่อนไขแล้ว
+
+// console.log("end loop");
+
+//example 2
+
+// let ans = prompt("please enter your answer");
+// let q = 3;
+
+// //เขียนโปรแกรมเดาเลขไปจนกว่าเลขจะเท่ากับ 3
+
+// while (ans !== q) {
+//   //ถ้าไม่ถูกต้องต้องเดาต่อไปเรื่อยๆ
+//   ans = prompt("please enter your answer");
+// }
+
+// //ถ้าตอบถูก หลุดออกมาเมื่อไหร่
+// alert("your answer is correct!");
+
+// let q = 8;
+// let ans = prompt("Please enter your answer");
+
+// while (true) {
+//   if (q === Number(ans)) {
+//     // แปลง ans เป็น Number ก่อน
+//     alert("Your answer is correct.");
+//     break;
+//   } else {
+//     ans = prompt("Please enter your answer"); // แก้ typo "yplease" ด้วย
+//   }
+// }
+
+// alert("End loop");
+
+// //สามารถใช้กับ for loop ได้
+
+// for (let i = 0; i <= 10; i++){
+//   console.log(i);
+//   if (i == 8){
+//     break;
+//   }
+// }
+
+//สร้างโปรแกรมที่ กรอก inout เดาเลขจนกว่าจะตรง
+//ถ้าเบื่อก็กดออกจากเกมได้
+
+// const maximum = propmt("please enter maximum number");
+// const targetNum = Math.floor(Math.random() * maximum);
+
+// let guess = prompt("Enter your answer");
+// let attempts = 1;
+
+// while (guess != targetNum) {
+//   if ((guess = "q")) {
+//     break;
+//   }
+//   attempts += 1;
+
+//   if (guess > targetNum) {
+//     guess = prompt("Too high! Enter a new answer");
+//   } else if (guess < targetNum) {
+//     guess = prompt("Too low! Enter a new answer");
+//   }
+// }
+
+// if (guess == "q") {
+//   alert("Ok! You got it!");
+// } else {
+//   alert("You got it! it took you ${attempts} guesses");
+// }
+
+// nonononononononono สับสนไปปโค้ด
+
+const maximum = prompt("Enter the maximum number");
+const targetNum = Math.floor(Math.random() * maximum) + 1;
+
+let guess = prompt("Enter your first guess (or 'q' to quit)");
+let attempts = 1;
+
+while (true) {
+  // 1. เช็คก่อนเลยว่าอยากเลิกไหม? (วางไว้บนสุดของลูป)
+  if (guess === "q") break;
+
+  // 2. ถ้าไม่เลิก ให้เช็คว่า "ถูกหรือยัง?"
+  // ต้องแปลง guess เป็น Number ก่อนเปรียบเทียบ (เพราะ prompt คืนค่าเป็น String)
+  if (parseInt(guess) === targetNum) {
+    break; // ทายถูกแล้ว ออกจากลูปไปโชว์ความสำเร็จ
   }
+
+  // 3. ถ้ายังไม่ถูก และยังไม่เลิก... ให้ใบ้และถามใหม่
+  attempts++; // เพิ่มจำนวนครั้งที่ทาย
+  if (parseInt(guess) > targetNum) {
+    guess = prompt("Too high! Try again (or 'q' to quit)");
+  } else {
+    guess = prompt("Too low! Try again (or 'q' to quit)");
+  }
+}
+
+// 4. สรุปผลหลังออกจากลูป
+if (guess === "q") {
+  alert("Game Over. You quit!");
+} else {
+  alert(`You got it! It took you ${attempts} guesses.`);
 }
